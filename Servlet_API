@@ -1,0 +1,63 @@
+Login.java
+    
+    -- Check if user is authenicated to enter
+    Parameters - id, password
+    Method - GET
+    Return Object - (JSON Object)
+        status - true (User authenicated), false (Not authenticated)
+        info -  "incomplete" -> Either of user ID or password is missing
+                "wrong password" -> User exists but password is incorrect
+                "no user" -> User ID doesn't exist
+                "internal error" -> Some internal error in connection/SQL
+                
+Signup.java
+
+    -- Check if user entered username exists, if not creates entry
+    Parameters - id, password_a, email, password_b
+    Method - POST
+    Return Object - (JSON Object)
+        status - true (User entry created), false (Not created due to some error)
+        info -  "incomplete" -> Either of required parameters is missing
+                "internal error" -> Some internal error in connection/SQL
+                "user exists" -> User ID exists. Need to use other user id
+		"no match" -> Passwords don't match
+
+Logout.java
+
+    -- Servlet for logging out .
+    Parameters - NONE
+    Method - GET
+    Return Object - (JSON Object)
+        status - always true
+
+EditDetails.java
+
+    --For now post the details for update
+
+GetDetails.java
+
+ -- Returns the details asked. Can be about reader or book.
+    Parameters - id, type
+    Method - GET
+    Return Object - (JSON Object)
+	
+	status - true (if reader/book present) 
+	info - "internal error" -> Some problem internally. 
+
+	Reader -
+		name
+		gender
+		dob
+		city
+		intro
+		follower
+		followee
+		books
+
+	Book -
+		name
+		description
+		author
+		num. of pages
+    
+                

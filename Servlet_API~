@@ -1,0 +1,23 @@
+Login.java
+    
+    -- Check if user is authenicated to enter
+    Parameters - id, password
+    Method - GET
+    Return Object - (JSON Object)
+        status - true (User authenicated), false (Not authenticated)
+        info -  "incomplete" -> Either of user ID or password is missing
+                "wrong password" -> User exists but password is incorrect
+                "no user" -> User ID doesn't exist
+                "internal error" -> Some internal error in connection/SQL
+                
+Signup.java
+
+    -- Check if user entered username exists, if not creates entry
+    Parameters - id, password, email
+    Method - POST
+    Return Object - (JSON Object)
+        status - true (User entry created), false (Not created due to some error)
+        info -  "incomplete" -> Either of required parameters is missing
+                "internal error" -> Some internal error in connection/SQL
+                "user exists" -> User ID exists. Need to use other user id
+                
